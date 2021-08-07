@@ -1,0 +1,182 @@
+$orange : #FC5A34;
+$green : #6ABE52;
+$dark : #373333;
+$white : #ffffff;
+$transparent : rgba(255, 255, 255, 0);
+$wing : linear-gradient(0deg, $orange 0%, $orange 20%, $transparent 20.1%, $transparent 80%, $orange 80.1%);
+$marker : linear-gradient(90deg, rgba(106,190,82,1) 0%, rgba(106,190,82,1) 60%, rgba(106,190,82,0) 60.1%, rgba(106,190,82,0) 80%, rgba(106,190,82,1) 80.1%);
+$black : #000000;
+$grey1 : #444444;
+$grey2 : #AAAAAA;
+$grey3 : #C7C7C7;
+$greyLight : #E9E9E9;
+$shadowLight : 0px 3px 20px rgba(0, 0 , 0, 0.03);
+$shadowMid :    1px 5px 9px rgba(0, 0 , 0, 0.09);
+// $shadowMid : 1px ​5px 9px rgba(0, 0 , 0, 0.09);
+
+$font12 : 12px;
+$font13 : 13px;
+$font15 : 15px;
+$font16 : 16px;
+$font18 : 18px;
+$font20 : 20px;
+$font25 : 25px;
+$font30 : 30px;
+$font40 : 40px;
+$font42 : 42px;
+
+$fontAnton : 'Anton', 'Open Sans', 'serif';
+
+$regular : 400;
+$medium : 500;
+$semibold : 600;
+$bold : 700;
+
+@mixin marker{
+    content : '';
+    display: block;
+    height : 3px;
+    width : 25px;
+    background: $marker;
+}
+
+@mixin button{
+    padding : 12px 30px;
+    color: $white;
+    font-size: $font18;
+    font-weight: $bold;
+    border-radius: 100px;
+    box-sizing: border-box;    
+    transition: background-color .3s, border .3s;
+    i{
+        padding-left: 5px;
+    }
+    &.small{
+        font-weight: $semibold;
+        font-size: $font12;
+        padding : 6px 20px;  
+    }    
+}
+
+.button.solid{
+    @include button;
+    background-color: $orange;
+    border: solid 2px $orange;
+    cursor: pointer;
+    &:hover{
+        border: solid 2px $white;        
+        background-color: transparent;        
+    }
+    &.add{
+        font-size: 16px;
+        padding : 5px 10px;
+        margin-top: 30px;
+    }
+    &.white:hover{
+        border: solid 2px $orange;
+        background-color: transparent;
+        color: $orange;
+    }
+}
+
+.button.flat{
+    @include button;    
+    border: solid 2px $white;
+    font-weight: $semibold;
+    &:hover{
+        background-color: $orange;
+        border: solid 2px $orange;                
+    }
+}
+
+
+@mixin title{
+    font-size: $font30;
+    display: flex;
+    font-weight: $semibold;
+    justify-content: center;
+    align-items: center;
+    color: $black;
+    &::before, &::after{
+        display: block;
+        background: $wing;
+        content: '';
+        width : 40px;
+        height: 15px;
+        margin : 0 20px;
+    }
+    margin : 50px;
+}
+
+@mixin content{
+    margin : 60px auto;
+    width : 85%;
+    border: solid 2px $greyLight;
+    box-sizing: border-box;
+    padding : 40px 60px;
+    text-align: left;
+}
+
+@mixin grey-area{
+    border : solid 1px $grey3;
+    background-color: $greyLight;
+    border-radius: 10px;
+}
+
+.add-button{
+    cursor: pointer;
+    width: 20%;
+    display: inline-block;
+    @include grey-area;
+    color : $black;
+    font-size: $font15;
+    padding : 0 20px ;
+    line-height: 40px;
+    margin-right: 30px;
+    text-align: center;
+    i{
+        font-size: $font18;
+        margin-right : 20px;
+    }
+}
+
+.add-file{
+    margin-right: 40px;
+    width: 70%;
+    cursor: pointer;
+    display: inline-block;
+    @include grey-area;
+    color : $black;
+    font-size: $font15;
+    padding : 0 20px ;
+    line-height: 40px;
+}
+
+@mixin loader{
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid $orange;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@mixin loader-small{
+    @include loader;    
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid $orange;
+    width: 25px;
+    height: 25px;    
+}
+  
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
