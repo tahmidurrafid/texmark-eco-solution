@@ -24,6 +24,7 @@ $font25 : 25px;
 $font30 : 30px;
 $font40 : 40px;
 $font42 : 42px;
+$font60 : 60px;
 
 $fontAnton : 'Anton', 'Open Sans', 'serif';
 
@@ -31,6 +32,10 @@ $regular : 400;
 $medium : 500;
 $semibold : 600;
 $bold : 700;
+$breakpoint-desktop : 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 640px;
+
 
 @mixin marker{
     content : '';

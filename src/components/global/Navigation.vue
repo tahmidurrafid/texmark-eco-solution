@@ -3,7 +3,10 @@
         <div class = "logo">
             <img src = "@/assets/nav-logo.svg" />
         </div>
-        <div class = "menu">
+        <div class = "expand" @click="showNav = !showNav">
+            <i class = "fa fa-navicon"></i>
+        </div>
+        <div class = "menu" :class="showNav ? 'show' : ''">
             <div v-for="(item, i) in menu" v-bind:key = "i" class = "item" >
                 <router-link :to = "item.link">{{item.caption}}</router-link>
             </div>
@@ -18,6 +21,7 @@ export default{
     name : 'Navigation',
     data(){
         return{
+            showNav : false,
             menu : [
                 {link : '/', caption : 'Home'},
                 {link : '/', caption : 'our Products'},
@@ -55,7 +59,10 @@ export default{
         height : 90px;
         box-sizing: border-box;
         padding : 0 60px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);        
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);  
+        .expand{
+            display: none;
+        }      
         .menu{
             display: flex;
             .item{
@@ -140,6 +147,45 @@ export default{
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-desktop) {
+        .nav{
+            display: block;
+            position : relative;
+            .logo{
+                display: flex;
+                justify-content: center;
+                padding : 10px 0;
+            }
+            .expand {
+                cursor: pointer;
+                display: flex;
+                position : absolute;
+                right : 10px;
+                top : 10px;
+                background-color: $white;
+                box-shadow: $shadowMid;
+                width : 40px;
+                height : 40px;
+                font-size: 20px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+
+            }
+            height: auto;
+            .menu{
+                &.show{
+                    display: block;
+                }
+                display: none;
+                .item{
+                    text-align: center;
+                    padding: 5px 0;
                 }
             }
         }

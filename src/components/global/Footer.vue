@@ -70,6 +70,7 @@
 </script>
 
 <style lang = "scss" scoped>
+    @import "../../scss/_variables.scss";
     $styleFont : 'Montserrat Subrayada';
 
     .footer{
@@ -134,6 +135,13 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    .logo{
+                        display: flex;
+                        justify-content: center;
+                        img{
+                            display: block;
+                        }
+                    }
                     .social{
                         padding-top: 20px;                        
                         display: flex;
@@ -174,4 +182,25 @@
             text-align: center;
         }
     }
+    @media (max-width: $breakpoint-tablet) {
+        .footer{
+            .wrapper{
+                display: block;
+                .item{
+                    width : 100%;
+                    padding-top: 20px;
+                    &.left{
+                        display: none;                        
+                        /* text-align: center; */
+                        .infos{
+                            .box{
+                                /* justify-content: center; */
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 </style>
