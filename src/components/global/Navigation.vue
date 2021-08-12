@@ -25,7 +25,7 @@ export default{
             menu : [
                 {link : '/', caption : 'Home'},
                 {link : '/', caption : 'our Products'},
-                {link : '/', caption : 'About Us'},
+                {link : '/about', caption : 'About Us'},
                 {link : '/', caption : 'Contact'},
                 {link : '/', caption : 'Blogs'},
                 {link : '/', caption : 'Photos'},
