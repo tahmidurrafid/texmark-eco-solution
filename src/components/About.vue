@@ -91,6 +91,7 @@ export default {
     name : "About",
     data(){
         return {
+            expand : false,
             swiperOptions: {
                 autoplay: {
                     delay: 2500,
@@ -114,7 +115,6 @@ export default {
     },
     mounted() {
         console.log('Current Swiper instance object', this.swiper)
-        // this.swiper.slideTo(3, 1000, false);
 
     },
     methods : {
