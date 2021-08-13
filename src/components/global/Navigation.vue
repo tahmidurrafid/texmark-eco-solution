@@ -24,9 +24,9 @@ export default{
             showNav : false,
             menu : [
                 {link : '/', caption : 'Home'},
-                {link : '/', caption : 'our Products'},
+                {link : '/products', caption : 'our Products'},
                 {link : '/about', caption : 'About Us'},
-                {link : '/', caption : 'Contact'},
+                {link : '/contact', caption : 'Contact'},
                 {link : '/', caption : 'Blogs'},
                 {link : '/', caption : 'Photos'},
                 {link : '/', caption : 'Videos'},
