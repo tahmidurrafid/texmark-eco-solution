@@ -136,7 +136,7 @@ export default {
         .history{
             background-color: $darkGreen;
             box-sizing: border-box;
-            padding: 130px 15%;
+            padding: 9vw 15%;
             color : $white;
             .title{
                 font-size: 16px;
@@ -145,6 +145,9 @@ export default {
                 padding-top: 20px;
                 font-size: 34px;
                 font-weight: $medium;
+                @media (max-width: $breakpoint-tablet) {
+                    font-size: 25px;
+                }                
                 .more{
                     margin: 0 12px;
                     line-height: 10px;
@@ -173,13 +176,21 @@ export default {
         }
         .members{
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             box-sizing: border-box;
             padding: 0 8%;
             .member{
-                width: 23%;
+                width: 25%;
+                @media (max-width: $breakpoint-tablet) {
+                    width: 50%;
+                }
+                @media (max-width: $breakpoint-phone) {
+                    width: 100%;
+                }
+                padding : 30px 10px;
+                box-sizing: border-box;
                 .wrap{
-                    padding : 30px 0;
+                    padding: 25px 0 10px;
                     box-sizing: border-box;
                     border : solid 1px $greyLight;
                     /* box-shadow: $shadowMid; */
@@ -273,7 +284,8 @@ export default {
                         transform : scale(1.2)
                     }
                 }
-                $nav-offset : 100px;
+                $nav-offset : 10vw;
+                
                 .next{
                     right : $nav-offset;     
                 }

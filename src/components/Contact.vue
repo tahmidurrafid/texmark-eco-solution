@@ -162,4 +162,17 @@ export default {
 
     }
 
+
+    @media (max-width: $breakpoint-tablet) {
+        .contact .container{
+            display: block;
+            .form{
+                width: 100%;
+            }
+            .infos{
+                width: 100%;
+                padding : 50px 0 0;
+            }
+        }
+    }
 </style>

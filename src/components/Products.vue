@@ -32,7 +32,11 @@
                     <div class = "wrap">
                         <div class = "image">
                             <img :src = "require(`@/assets/products/${item.image}.jpg`)" />
-                            <!-- <img src = "@/assets/products/1.jpg" /> -->
+                            <div class = "hover">
+                                <div class = "btn">
+                                    <i class = "fa fa-external-link"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,6 +172,9 @@ export default {
                     font-size: 18px;
                     box-sizing: border-box;
                     padding: 10px 30px;
+                    @media (max-width: $breakpoint-phone) {
+                        padding: 10px 10px;                        
+                    }
                     &.selected{
                         background-color : $green;
                         color : $white;
@@ -185,7 +192,7 @@ export default {
                 display: flex;
                 justify-content: center;
                 box-sizing: border-box;
-
+                flex-wrap: wrap;
                 .item{
                     display: flex;
                     align-items: center;
@@ -222,6 +229,14 @@ export default {
                 .item{
                     width : 25%;
                     padding-bottom: 25%;
+                    @media (max-width: $breakpoint-tablet) {
+                        width : 50%;
+                        padding-bottom: 50%;
+                    }
+                    @media (max-width: $breakpoint-phone) {
+                        width : 100%;
+                        padding-bottom: 100%;
+                    }
                     position : relative;
                     overflow: hidden;
                     .wrap{
@@ -237,8 +252,46 @@ export default {
                             height : 100%;
                             border-radius: 15px;
                             overflow: hidden;
+                            position : relative;
+                            &:hover .hover{
+                                top : 0;
+                            }                            
                             img{
                                 width : 100%;
+                            }
+                            .hover{
+                                position : absolute;
+                                left : 0;
+                                top : 100%;
+                                width : 100%;
+                                height: 100%;
+                                color : white;
+                                background-color: rgb(106, 190, 82, .7);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                transition: top .5s;
+
+                                .btn{
+                                    display: block;
+                                    $dim : 50px;
+                                    cursor: pointer;
+                                    height : $dim;
+                                    width : $dim;
+                                    line-height : $dim;
+                                    text-align: center;
+                                    box-sizing: border-box;
+                                    border: solid 2px $white;
+                                    border-radius: $dim;
+                                    transition : backgound-color .3s, color .3s;
+                                    &:hover{
+                                        background-color: $white;
+                                        color: $green;
+                                    }
+                                    i{
+                                        font-size: 18px;
+                                    }
+                                }
                             }
 
                         }
@@ -247,4 +300,5 @@ export default {
             }
         }
     }
+
 </style>

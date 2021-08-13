@@ -40,8 +40,12 @@ export default{
     },
     methods : {
 
+    },
+    watch : {
+        $route (to, from){
+            this.showNav = false;
+        }
     }
-
 };
 </script>
 
