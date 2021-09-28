@@ -21,29 +21,93 @@
 
         <div class = "team">
             <div class = "heading">
-                <span>Workers/Execuives</span>
+                <span>Directors </span>
             </div>
             <div class = "members">
-                <div class = "member" v-for="i in 4" v-bind:key="i">
+                <div class = "member">
+                    <div class = "wrap">
+                        <div class = "dp">
+                            <img src = "@/assets/dp4.jpg" />
+                        </div>
+                        <div class = "name">Tanvir Hossain</div>
+                        <div class = "designation">CEO (Chief Executive Officer)</div>
+                        <div class = "social">
+                            <a href = "tel:+8801405780240" class = "btn">
+                                <i class = "fa fa-phone"></i>
+                            </a>
+                            <a href = "mailto:tanvir42butex@gmail.com" class = "btn">
+                                <i class = "fa fa-envelope-o"></i>
+                            </a>
+                            <a href = "https://www.facebook.com/profile.php?id=100007034201127" class = "btn">
+                                <i class = "fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "member">
                     <div class = "wrap">
                         <div class = "dp">
                             <img src = "@/assets/dp1.jpg" />
                         </div>
-                        <div class = "name">Muzahid Rumman</div>
-                        <div class = "designation">Executive Manager</div>
+                        <div class = "name">Muzahidur Rahman</div>
+                        <div class = "designation">CMO (Chief Marketing Officer)</div>
                         <div class = "social">
-                            <div class = "btn">
-                                <i class = "fa fa-facebook"></i>
-                            </div>
-                            <div class = "btn">
-                                <i class = "fa fa-linkedin"></i>
-                            </div>
-                            <div class = "btn">
+                            <a href = "tel:+8801521415499" class = "btn">
+                                <i class = "fa fa-phone"></i>
+                            </a>
+                            <a href = "mailto:Muzahid.rumman@gmail.com" class = "btn">
                                 <i class = "fa fa-envelope-o"></i>
-                            </div>
+                            </a>
+                            <a href = "https://www.facebook.com/muzahid.rumman" class = "btn">
+                                <i class = "fa fa-facebook"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <div class = "member">
+                    <div class = "wrap">
+                        <div class = "dp">
+                            <img src = "@/assets/dp2.jpg" />
+                        </div>
+                        <div class = "name">Shakil Ahmed</div>
+                        <div class = "designation">COO (Chief Operating Officer)</div>
+                        <div class = "social">
+                            <a href = "tel:+8801521409157" class = "btn">
+                                <i class = "fa fa-phone"></i>
+                            </a>
+                            <a href = "mailto:Sasagar.fpur@gmail.com" class = "btn">
+                                <i class = "fa fa-envelope-o"></i>
+                            </a>
+                            <a href = "https://www.facebook.com/shakilsagar.fpur" class = "btn">
+                                <i class = "fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "member">
+                    <div class = "wrap">
+                        <div class = "dp">
+                            <img src = "@/assets/dp3.jpg" />
+                        </div>
+                        <div class = "name">Jalal Md Ashfaq</div>
+                        <div class = "designation">CFO (Chief Financial Officer)</div>
+                        <div class = "social">
+                            <a href = "tel:+8801521493056" class = "btn">
+                                <i class = "fa fa-phone"></i>
+                            </a>
+                            <a href = "mailto:jalalrusso07@gmail.com" class = "btn">
+                                <i class = "fa fa-envelope-o"></i>
+                            </a>
+                            <a href = "https://www.facebook.com/jalal.russo" class = "btn">
+                                <i class = "fa fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class = "achievement">
@@ -55,15 +119,26 @@
                 <div class = "prev" @click="prev()"> <i class = "fa fa-arrow-left"></i> </div>
                 <div class = "next" @click="next()"> <i class = "fa fa-arrow-right"></i> </div>
                 <swiper ref="mySwiper" :options="swiperOptions">
-                    <swiper-slide v-for="i in 3" v-bind:key="i" >
+                    <swiper-slide >
                         <div class = "prize">
-                            <div class = "position">1st Runner up</div>
+                            <div class = "position">Hult Prize 2019- On Campus Champion of BUTEX</div>
                             <div class = "competition">
-                                BCC-National Innovation Competition
+                                Regional participation
                             </div>
 
                             <div class = "brief">
-                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
+                                Team Eco-solution became the champion team of the on campus round of Hult Prize 2019 with their project. Later, were selected for the Kualalampur regional round but couldn’t attend due to the start of corona pandemic, but participated the regional through online.
+                            </div>
+                        </div>
+                    </swiper-slide>
+                    <swiper-slide >
+                        <div class = "prize">
+                            <div class = "position">Winner</div>
+                            <div class = "competition">
+                                Student 2 Startup season 2
+                            </div>
+                            <div class = "brief">
+                                Team Eco-solution later participated in the Student 2 Startup programme of ICT division and became winner on campus round. Later, Eco-solution participated the national round and became one of the winners with the project. ICT division invested the project.
                             </div>
                         </div>
                     </swiper-slide>

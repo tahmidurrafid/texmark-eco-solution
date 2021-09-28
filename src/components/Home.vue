@@ -4,11 +4,11 @@
             <div class = "prev" @click="prev()"> <i class = "fa fa-arrow-left"></i> </div>
             <div class = "next" @click="next()"> <i class = "fa fa-arrow-right"></i> </div>
             <swiper ref="mySwiper" :options="swiperOptions">
-                <swiper-slide v-for="i in 3" v-bind:key="i" >
+                <swiper-slide>
                     <div class = "slide">
                         <div class = "content">
                             <div class = "heading">
-                                Join hands to{{i}} <br/>
+                                Join hands to<br/>
                                 save environment.
                             </div>
                             <div class = "subtitle">
@@ -23,7 +23,30 @@
                             </div>
                         </div>
                         <div class = "image">
-                            <img src="@/assets/slide1.jpg" />
+                            <img src="@/assets/slider/1.jpg" />
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class = "slide">
+                        <div class = "content">
+                            <div class = "heading">
+                                Join hands to<br/>
+                                save environment.
+                            </div>
+                            <div class = "subtitle">
+                                Think Smart, Think Green – Recycle! 
+                                <br />Join the Green Revolution and stop pollution!
+                            </div>
+                            <div class = "separator"></div>
+                            <div class = "buttons">
+                                <div class = "button">
+                                    Read More
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "image">
+                            <img src="@/assets/slider/2.jpg" />
                         </div>
                     </div>
                 </swiper-slide>
@@ -180,6 +203,10 @@ export default {
                 height: 40vw;
                 position: relative;
                 .content{
+                    z-index : 100;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                     padding : 7vw 10vw;  
                     .heading{
                         font-size: 4.44vw;

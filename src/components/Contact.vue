@@ -48,17 +48,16 @@
             <div class = "infos">
                 <div class = "box">
                     <span class = "label">Phone</span>
-                    <span class = "val">+8801762111010 <br/>+88017343545
-                    <br/>+880171231234</span>
+                    <span class = "val">+8801405780240</span>
                 </div>
                 <div class = "box">
                     <span class = "label">EMAIL</span>
-                    <span class = "val">support@iclp.com<br/>support@iclp.com</span>
+                    <span class = "val"> texmark.ecosolution@gmail.com</span>
                 </div>
                 <div class = "box">
                     <span class = "label">Address</span>
-                    <span class = "val">1365/54/7 Karwan Bazar Avenue,<br/>
-                    Dhaka -1000, Bangladesh</span>
+                    <span class = "val">MERS Habib enterprise, 1st floor, Dublia Bazer, Pabna sadar
+Pabna</span>
                 </div>
             </div>
         </div>
