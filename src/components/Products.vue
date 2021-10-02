@@ -1,5 +1,7 @@
 <template>
+
     <div class = "products">
+
         <div class = "heading">
             <span>Our Products</span>
         </div>
@@ -7,17 +9,8 @@
         <div class = "categories">
             <div class = "items">
                 <div v-for="(item, i) in categories" v-bind:key="i" class = "item"
-                :class="selectedCategory.index == i ? 'selected' : ''"
-                @click="selectedCategory.index = i, selectedCategory.subIndex = 0">
-                    {{item.value}}
-                </div>
-            </div>
-        </div>
-        <div class = "sub-categories">
-            <div class = "items">
-                <div v-for="(item, i) in categories[selectedCategory.index].sub" v-bind:key="i" 
-                class = "item" :class="i == selectedCategory.subIndex ? 'selected' : ''"
-                @click="selectedCategory.subIndex = i">
+                :class="selectedCategory.id == item.id ? 'selected' : ''"
+                @click="selectedCategory.id = item.id">
                     {{item.value}}
                 </div>
             </div>
@@ -26,12 +19,12 @@
             <div class = "items">
                 <div v-for="(item, i) in products.filter(
                         e => 
-                        e.categoryId == categories[selectedCategory.index].sub[selectedCategory.subIndex].id
+                        e.categoryId == selectedCategory.id
                     )" 
                     v-bind:key="i" class = "item">
                     <div class = "wrap">
                         <div class = "image">
-                            <img :src = "require(`@/assets/products/${item.image}.jpg`)" />
+                            <img :src = "require(`@/assets/products/${item.image}`)" />
                             <div class = "hover">
                                 <div class = "btn">
                                     <i class = "fa fa-external-link"></i>
@@ -41,9 +34,40 @@
                     </div>
                 </div>
             </div>
-
-            
         </div>
+        <div class = "lightbox">
+            <div class = "holder">
+                <div class = "close">
+                    <i class = "fa fa-close"></i>
+                </div>
+                <div class = "wrapper">
+                    <div class = "image">
+                        <img src="@/assets/products/jp1.jpg" />
+                    </div>
+                    <div class = "description">
+                        <h2>Jute Backpack</h2>
+                        <h3>Material: </h3>
+                        <ul>
+                            <li>Specially treated Jute Magical fabric</li>
+                            <li>High Quality Metal zipper</li>
+                            <li>Jute + Cotton mixture back (For sweat absorb)</li>
+                            <li>Leather for Fashionable look/design</li>
+                        </ul>
+                        <h3>Properties:</h3>
+                        <ul>
+                            <li>Liquid repellent (Waterproof)</li>
+                            <li>Dust repellent</li>
+                            <li>Bio-degradable</li>
+                            <li>Eco-friendly</li>
+                            <li>Back side is Sweat absorbant</li>
+                            <li>Huge inner space</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -54,94 +78,49 @@ export default {
         return{
             categories : [
                 {
-                    value : "Baggage Section",
+                    value : "Jute Backpack",
                     id : 1,
-                    sub : [
-                        {
-                            value : "Jute Backpack",
-                            id : 3
-                        },
-                        {
-                            value : "Jute Laptop bag",
-                            id : 4                            
-                        },
-                        {
-                            value : "Jute Handbag",
-                            id : 5
-                        },
-                        {
-                            value : "Fashionable Bag",
-                            id : 6
-                        },
-                    ]
                 },
                 {
-                    value : "Packaging Section",
-                    id : 2,
-                    sub : [
-                        {
-                            value : "Polymer Packing",
-                            id : 7
-                        },
-                        {
-                            value : "Others",
-                            id : 8
-                        }
-                    ]                    
+                    value : "Polymer packing",
+                    id : 2
+                },
+                {
+                    value : "Natural Straw",
+                    id : 3
                 }
             ],
             selectedCategory : {
-                index : 0,
-                subIndex : 0 
-            } ,
+                id : 1,
+            },
             products : [
                 {
-                    image : "1",
+                    image : "jp1.jpg",
+                    categoryId : 1
+                },
+                {
+                    image : "jp2.jpg",
+                    categoryId : 1
+                },
+                {
+                    image : "jp3.jpg",
+                    categoryId : 1
+                },
+                {
+                    image : "pp1.jpg",
+                    categoryId : 2
+                },
+                {
+                    image : "pp2.jpg",
+                    categoryId : 2
+                },
+                {
+                    image : "ns1.jpg",
                     categoryId : 3
                 },
                 {
-                    image : "2",
+                    image : "ns2.jpg",
                     categoryId : 3
-                },
-                {
-                    image : "3",
-                    categoryId : 3
-                },
-                {
-                    image : "6",
-                    categoryId : 3
-                },
-                {
-                    image : "8",
-                    categoryId : 3
-                },
-                {
-                    image : "9",
-                    categoryId : 3
-                },
-                {
-                    image : "2",
-                    categoryId : 4
-                },
-                {
-                    image : "3",
-                    categoryId : 4
-                },
-                {
-                    image : "1",
-                    categoryId : 7
-                },
-                {
-                    image : "9",
-                    categoryId : 7
-                },
-                {
-                    image : "8",
-                    categoryId : 7
-                },
-                {
-                    image : "6",
-                    categoryId : 7
                 },
             ]
 
@@ -153,9 +132,89 @@ export default {
 <style lang = "scss" scoped>
     @import "../scss/_variables.scss";
     .products{
+
         .heading{
             @include heading;
         }
+
+        .lightbox{
+            position: fixed;
+            left: 0;
+            top : 0;
+            width : 100%;
+            height : 100%;
+            background-color: rgba(255, 255, 255, .7);
+            z-index: 100;            
+            .holder{
+                position: relative;
+                width : 80%;
+                height : 80%;
+                margin-left: 10%;
+                margin-top : 5%;
+                box-sizing: border-box;
+                border-radius: 20px;
+                background-color: #000;
+                overflow: hidden;
+                .close{
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    border: solid 4px #fff;
+                    display: block;
+                    $dim : 25px;
+                    width: $dim;
+                    height : $dim;
+                    border-radius: 100px;
+                    color : #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    overflow: hidden;
+                }
+                .wrapper{
+                    display: flex;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    height: 100%;
+                    @media (max-width: $breakpoint-tablet) {
+                        display: block;
+                    }
+                    @media (max-width: $breakpoint-phone) {
+                        display: block;
+                    }
+                    .image{
+                        width: 50%;
+                        @media (max-width: $breakpoint-tablet) {
+                            width: 100%;
+                        }
+                        @media (max-width: $breakpoint-phone) {
+                            width: 100%;
+                        }
+                        height: 100%;
+                        box-sizing: border-box;
+                        padding : 20px;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                        }
+                    }
+                    .description{
+                        padding: 30px 20px 0;
+                        width: 50%;
+                        @media (max-width: $breakpoint-tablet) {
+                            width: 100%;
+                        }
+                        @media (max-width: $breakpoint-phone) {
+                            width: 100%;
+                        }
+
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
         .categories{
             display: flex;
             justify-content: center;
@@ -221,8 +280,7 @@ export default {
         }
         .product-list{
             box-sizing: border-box;
-            padding : 0 8%;
-            padding-bottom : 70px;
+            padding : 50px 8% 70px;
             .items{
                 display: flex;
                 flex-wrap: wrap;
