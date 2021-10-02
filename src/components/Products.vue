@@ -26,7 +26,7 @@
                         <div class = "image">
                             <img :src = "require(`@/assets/products/${item.image}`)" />
                             <div class = "hover">
-                                <div class = "btn">
+                                <div class = "btn" @click="lightbox.show = true; lightbox.productId = item.id">
                                     <i class = "fa fa-external-link"></i>
                                 </div>
                             </div>
@@ -35,33 +35,16 @@
                 </div>
             </div>
         </div>
-        <div class = "lightbox">
+        <div class = "lightbox" v-if="lightbox.show">
             <div class = "holder">
-                <div class = "close">
+                <div class = "close" @click="lightbox.show = false">
                     <i class = "fa fa-close"></i>
                 </div>
                 <div class = "wrapper">
                     <div class = "image">
-                        <img src="@/assets/products/jp1.jpg" />
+                        <img :src="require(`@/assets/products/${products.filter(e => e.id == lightbox.productId)[0].image}`)" />
                     </div>
-                    <div class = "description">
-                        <h2>Jute Backpack</h2>
-                        <h3>Material: </h3>
-                        <ul>
-                            <li>Specially treated Jute Magical fabric</li>
-                            <li>High Quality Metal zipper</li>
-                            <li>Jute + Cotton mixture back (For sweat absorb)</li>
-                            <li>Leather for Fashionable look/design</li>
-                        </ul>
-                        <h3>Properties:</h3>
-                        <ul>
-                            <li>Liquid repellent (Waterproof)</li>
-                            <li>Dust repellent</li>
-                            <li>Bio-degradable</li>
-                            <li>Eco-friendly</li>
-                            <li>Back side is Sweat absorbant</li>
-                            <li>Huge inner space</li>
-                        </ul>
+                    <div class = "description" v-html="products.filter(e => e.id == lightbox.productId)[0].description">
                     </div>
 
                 </div>
@@ -76,6 +59,10 @@ export default {
     name : "Products",
     data(){
         return{
+            lightbox : {
+                show : false,
+                productId: 0,
+            },
             categories : [
                 {
                     value : "Jute Backpack",
@@ -95,36 +82,87 @@ export default {
             },
             products : [
                 {
+                    id : 0,
                     image : "jp1.jpg",
                     categoryId : 1
                 },
                 {
+                    id : 1,
                     image : "jp2.jpg",
                     categoryId : 1
                 },
                 {
+                    id : 2,
                     image : "jp3.jpg",
                     categoryId : 1
                 },
                 {
+                    id : 3,
                     image : "pp1.jpg",
                     categoryId : 2
                 },
                 {
+                    id : 4,
                     image : "pp2.jpg",
                     categoryId : 2
                 },
                 {
+                    id : 5,
                     image : "ns1.jpg",
                     categoryId : 3
                 },
                 {
+                    id : 6,
                     image : "ns2.jpg",
                     categoryId : 3
                 },
             ]
 
         }
+    },
+    mounted(){
+        this.products.forEach( e => {
+            if(e.categoryId == 1){
+                e.description = `<h2>Jute Backpack</h2>
+                        <h3>Material: </h3>
+                        <ul>
+                            <li>Specially treated Jute Magical fabric</li>
+                            <li>High Quality Metal zipper</li>
+                            <li>Jute + Cotton mixture back (For sweat absorb)</li>
+                            <li>Leather for Fashionable look/design</li>
+                        </ul>
+                        <h3>Properties:</h3>
+                        <ul>
+                            <li>Liquid repellent (Waterproof)</li>
+                            <li>Dust repellent</li>
+                            <li>Bio-degradable</li>
+                            <li>Eco-friendly</li>
+                            <li>Back side is Sweat absorbant</li>
+                            <li>Huge inner space</li>
+                        </ul>
+                        `;
+            }else if(e.categoryId == 2){
+                e.description = `<h2>Polymer Packing</h2>
+                        <h3>Properties</h3>
+                        <ul>
+                            <li>100% bio degradable</li>
+                            <li>100% eco friendly</li>
+                            <li>Degrades immediately in water</li>
+                            <li>Made from natural sources</li>
+                            <li>Causes no environment pollution like Polyethene</li>
+                            <li>Perfect substitute of Polyethene in daily life usage</li>
+                        </ul>`
+            }else if(e.categoryId == 3){
+                e.description = `<h2>Natural Straw</h2>
+                        <ul>
+                            <li>Eco friendly</li>
+                            <li>Made from natural sources</li>
+                            <li>100% bio-degradable</li>
+                            <li>No chemical used</li>
+                        </ul>
+                `                
+            }
+        })
     }
 }
 </script>
@@ -193,7 +231,7 @@ export default {
                         }
                         height: 100%;
                         box-sizing: border-box;
-                        padding : 20px;
+                        padding : 25px;
                         img{
                             display: block;
                             max-width: 100%;
@@ -351,7 +389,6 @@ export default {
                                     }
                                 }
                             }
-
                         }
                     }
                 }
