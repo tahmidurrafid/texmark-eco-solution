@@ -30,8 +30,6 @@ export default{
                 {link : '/', caption : 'Blogs'},
                 {link : '/', caption : 'Photos'},
                 {link : '/', caption : 'Videos'},
-                {link : '/', caption : 'Links'},
-                {link : '/', caption : 'News'},
             ],
         }
     },

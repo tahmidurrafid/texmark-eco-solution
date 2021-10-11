@@ -14,8 +14,8 @@
                     </div>
                     <div class = "box">
                         <span class = "label">Address</span>
-                        <span class = "val">MERS Habib enterprise, 1<sup>st</sup> floor, Dublia Bazer, 
-                        <br/>Pabna sadar, Pabna<br/>
+                        <span class = "val">MERS Habib enterprise, 1<sup>st</sup> floor, <br/>Dublia Bazer, 
+                        Pabna sadar, Pabna
                         </span>
                     </div>
                 </div>

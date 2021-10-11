@@ -19,6 +19,9 @@ export default {
     return {
       name : 'rhythm',
     }
+  },
+  created(){
+    document.title = "TexMark Eco-Solution";
   }
 }
 </script>

@@ -8,13 +8,13 @@
                 <form>
                     <div class = "bar">
                         <div class = "elem half">
-                            <input type = "text" placeholder="Your name"/>
+                            <input type = "text" v-model="mail.name" placeholder="Your name"/>
                             <span class = "icon">
                                 <i class = "fa fa-user"></i>
                             </span>
                         </div>
                         <div class = "elem half">
-                            <input type = "text" placeholder="Phone No."/>
+                            <input type = "text" v-model="mail.phone" placeholder="Phone No."/>
                             <span class = "icon">
                                 <i class = "fa fa-phone"></i>
                             </span>
@@ -22,13 +22,13 @@
                     </div>
                     <div class = "bar">
                         <div class = "elem half">
-                            <input type = "text" placeholder="Your email"/>
+                            <input type = "text" v-model="mail.email" placeholder="Your email"/>
                             <span class = "icon">
                                 <i class = "fa fa-envelope"></i>
                             </span>
                         </div>
                         <div class = "elem half">
-                            <input type = "text" placeholder="Company(Optional)"/>
+                            <input type = "text" v-model="mail.company" placeholder="Company(Optional)"/>
                             <span class = "icon">
                                 <i class = "fa fa-caret-square-o-up"></i>
                             </span>
@@ -36,12 +36,16 @@
                     </div>
                     <div class = "bar">
                         <div class = "elem">
-                            <textarea placeholder="Type your message here...">
+                            <textarea v-model="mail.message" placeholder="Type your message here...">
                             </textarea>
                         </div>
                     </div>
+                    <div class = "confirm" v-if="clicked">
+                        <div v-if="!sent">Sending!!!</div>
+                        <div v-else>Message send successfully.</div>
+                    </div>
                     <div class = "submit">
-                        <div class = "button">Submit</div>
+                        <div class = "button" @click="send()">Submit</div>
                     </div>
                 </form>
             </div>
@@ -56,8 +60,7 @@
                 </div>
                 <div class = "box">
                     <span class = "label">Address</span>
-                    <span class = "val">MERS Habib enterprise, 1st floor, Dublia Bazer, Pabna sadar
-Pabna</span>
+                    <span class = "val">MERS Habib enterprise, 1st floor, Dublia Bazer,<br/> Pabna sadar, Pabna</span>
                 </div>
             </div>
         </div>
@@ -66,7 +69,27 @@ Pabna</span>
 
 <script>
 export default {
-    name : "Contact"
+    name : "Contact",
+    data(){
+        return {
+            clicked : false,
+            sent : false,
+            mail : {
+
+            }
+        }
+    },
+    methods : {
+        send(){
+            this.clicked = true;
+            this.axios.post("https://amtrafid.com/mailer/mail.php", this.mail).then((response) => {
+                console.log(response.data);
+                if(response.data.success){
+                    this.sent = true;
+                }
+            })
+        }
+    }
 }
 </script>
 
@@ -122,13 +145,25 @@ export default {
                             }
                         }
                     }
+                    .confirm{
+                        padding-bottom: 20px;
+                    }
+
                     .submit{
                         display: flex;
                         .button{
+                            cursor: pointer;
                             background-color: $green;
                             color : $white;
                             font-weight: $medium;
-                            padding : 10px 25px;
+                            padding : 7px 20px;
+                            box-sizing: border-box;
+                            border : solid 4px $green;
+                            transition: background-color .3s, color .3s;
+                            &:hover{
+                                background-color: $white;
+                                color : $green;
+                            }
                         }
                     }
                 }
@@ -151,7 +186,7 @@ export default {
                     }
                     .val{
                         font-size: 14px;
-
+                        flex-grow: 1;
                     }
                 }
             }   

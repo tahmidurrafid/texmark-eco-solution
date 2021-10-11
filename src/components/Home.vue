@@ -17,9 +17,9 @@
                             </div>
                             <div class = "separator"></div>
                             <div class = "buttons">
-                                <div class = "button">
+                                <router-link class = "button" to="/about">
                                     Read More
-                                </div>
+                                </router-link>
                             </div>
                         </div>
                         <div class = "image">
@@ -74,9 +74,9 @@
                             <i class = "fa fa-play-circle"></i>
                             <span>Take a Tour</span>
                         </div>
-                        <div class = "button">
+                        <router-link class = "button" to="/products">
                             Shop Now
-                        </div>
+                        </router-link>
                     </div>
                 </div>
                 <div class = "right">

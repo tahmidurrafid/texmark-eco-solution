@@ -4,14 +4,33 @@
             <div class = "title">Who We Are</div>
             <div class = "description">
                 <div v-if="!expand" class = "short">
-                    We believe in designing the best interfaces. We create everything digital and analytical
+                    Texmark Eco Solution BD started its journey at October 2020 with a vision to
+                    create a sustainable solution 
                     <span class = "more">
                         <div class = "btn" @click="expand = true">more</div>
                     </span>
                 </div>
                 <div v-else class = "full">
-                    We believe in designing the best interfaces. We create everything digital and analytical
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    Texmark Eco Solution BD started its journey at October 2020 with a vision to
+                    create a sustainable solution for environment pollution that’s caused by plastics,
+                    synthetics and polyethenes. Since then, our company has been researching and
+                    developing products that are substitute of those plastics, synthetics and
+                    polyethenes. We’ve already launched some products like Magical jute bag that is
+                    substitute of synthetic bags, natural straw that is substitute product of plastic
+                    straw and natural polymer bags that are substitute of polyethenes. Our company
+                    is research and innovation based, that works on new product research and
+                    product development. We invent products that are bio degradable and 100%
+                    ecofriendly.
+                    <br/>
+                    <h3>Our Mission</h3>
+                    Our mission is to invent and develop new products that will substitute products
+                    which are hazardous for environment. Our new products will reduce the usage of
+                    those hazardous products and therefore will help to save the world environment.
+                    <h3>Our Vision</h3>
+                    Our vision is to create the future world better and livable for our future
+                    generation. Environment pollution is increasing alarmingly every day and we have
+                    to act urgently to stop it. Our vision is to create a pollution free green world that
+                    is safe for all lives on the planet.
                     <span class = "more">
                         <div class = "btn" @click="expand = false">less</div>
                     </span>
@@ -385,9 +404,6 @@ export default {
                 .position{
                     color: $white;
                     font-weight: $medium;
-                }
-                .brief{
-
                 }
             }
         }
